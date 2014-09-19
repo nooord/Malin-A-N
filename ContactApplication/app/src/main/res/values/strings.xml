@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Contact Application</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Go to menu!</string>
     <string name="action_contact">Contact</string>
     <string name="action_color">Color</string>
     <string name="action_random">Random</string>
@@ -14,6 +14,11 @@
     <string name="phoneTxt">Phone</string>
     <string name="mail.Txt">Mail</string>
     <string name="buttonAd">Create contact</string>
-
+    <string name="title_activity_color">ColorActivity</string>
+    <string name="changeBackgroundColor">HeaderText</string>
+    <string name="buttonBlue" >Blue</string>
+    <string name="buttonRed">Red</string>
+    <string name="onClickRed" />
+    <string name="onClickBlue" />
 
 </resources>

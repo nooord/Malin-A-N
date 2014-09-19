@@ -8,55 +8,58 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.malin.contactapplication.addContactActivity">
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/nameTxt"
-        android:ems="10"
-        android:id="@+id/name"
-        android:layout_below="@+id/name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="@string/nameTxt"
+                android:ems="10"
+                android:id="@+id/name"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/phone"
-        android:text="@string/phoneTxt"
-        android:layout_below="@+id/mail"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/mail"
-        android:layout_alignEnd="@+id/mail" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/mail"
+                android:text="@string/mail.Txt"
+                android:layout_below="@+id/name"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/name"
+                android:layout_alignEnd="@+id/name" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/mail"
-        android:text="@string/mail.Txt"
-        android:layout_below="@+id/name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/name"
-        android:layout_alignEnd="@+id/name" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/phone"
+                android:text="@string/phoneTxt"
+                android:layout_below="@+id/mail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/mail"
+                android:layout_alignEnd="@+id/mail" />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonAd"
-        android:onClick="@string/clickbutton"
-        android:enabled="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/buttonAd" />
+            <Button
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonAd"
+                android:onClick="@string/clickbutton"
+                android:enabled="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/buttonAd" />
+        </LinearLayout>
 
 </RelativeLayout>

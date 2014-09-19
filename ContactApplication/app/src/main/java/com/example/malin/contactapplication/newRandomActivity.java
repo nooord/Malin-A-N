@@ -15,16 +15,19 @@ import android.widget.TextView;
 
 public class newRandomActivity extends Activity {
 
+    //Variablerna lägger i public class för att kunna hämtas till flera metoder.
     Button randomGenerate;
-    TextView randomresult;
+    TextView randomResult;
     Random myRandom;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_random);
+        //
         randomGenerate = (Button)findViewById(R.id.randomBtn);
-        randomresult = (TextView)findViewById(R.id.randomresult);
+        randomResult = (TextView)findViewById(R.id.randomResult);
     }
 
 
@@ -52,6 +55,6 @@ public class newRandomActivity extends Activity {
         double random = myRandom.nextDouble()*100;
         String randomstr = String.format("%.2f",random);
 
-        randomresult.setText(randomstr);
+        randomResult.setText(randomstr);
     }
 }

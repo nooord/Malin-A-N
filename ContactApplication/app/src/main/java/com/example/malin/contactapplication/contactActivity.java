@@ -35,23 +35,33 @@ public class contactActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+
         switch (id){
+
             case R.id.action_contact:
                 Toast.makeText(this, "Contact",Toast.LENGTH_SHORT).show();
                 Intent contact = new Intent(this, addContactActivity.class);
                 startActivity(contact);
+
                 //kopplar meny till ny aktivitet - contact.
                 break;
+
             case R.id.action_random:
                 Intent newRandom = new Intent(this, newRandomActivity.class);
                 startActivity(newRandom);
                 Toast.makeText(this, "Random",Toast.LENGTH_SHORT).show();
+                //kopplar meny till ny aktivitet random.
                 break;
+
             case R.id.action_color:
+                Intent color = new Intent(this, colorActivity.class);
+                startActivity(color);
                 Toast.makeText(this, "Color",Toast.LENGTH_SHORT).show();
+                 //kopplar meny till ny aktivitet color.
 
                 return true;
-            //Startar aktivitet meny
+                //Startar aktivitet meny
 
 
 

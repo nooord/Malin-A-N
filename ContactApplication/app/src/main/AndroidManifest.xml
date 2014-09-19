@@ -24,6 +24,10 @@
             android:name=".newRandomActivity"
             android:label="@string/title_activity_new_random" >
         </activity>
+        <activity
+            android:name=".colorActivity"
+            android:label="@string/title_activity_color" >
+        </activity>
     </application>
 
 </manifest>
