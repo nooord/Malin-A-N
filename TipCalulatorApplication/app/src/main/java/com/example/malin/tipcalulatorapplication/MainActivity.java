@@ -23,33 +23,48 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements View.OnClickListener, Chronometer.OnChronometerTickListener {
 
 
+    //Initializes variables
 
-    EditText billEditText, tipEditText, editFinalText;
-    SeekBar seekBar;
-    CheckBox boxFriendly, boxSpecial, boxOpinion;
-    RadioGroup radioGroup;
-    Spinner spinner;
-    Chronometer timer;
-    int tick = -2;
-    Button buttonStart, buttonPause, buttonReset;
+    EditText billEditText, tipEditText, editFinalText;//EditText variavles
+
+    SeekBar seekBar;//seekBar variables
+
+    CheckBox boxFriendly, boxSpecial, boxOpinion;//checkBox varialels
+
+    RadioGroup radioGroup;//RadioButton varialbles
+
+    Spinner spinner;//set spinner
+
+    Chronometer timer;//set chronometer
+
+    int tick = -2;// Had to define the tick with minus 2 sek beacouse it tick every 8 sec.//
+
+    Button buttonStart, buttonPause, buttonReset;//Set buttons
+
     long lastPause = 0;
-    int ticktiploss = 0;
+
+    int ticktiploss = 0;//placeholder for minus the tip
 
 
 
 
 
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        //To start the app, use the initialized variables.
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Set all variabels to th id created in the .xml file.
+
         billEditText = (EditText)findViewById(R.id.billEditText);
+
         tipEditText = (EditText)findViewById(R.id.tipEditText);
+
         editFinalText = (EditText)findViewById(R.id.editFinalText);
+
         seekBar = (SeekBar)findViewById(R.id.seekBar);
+
         boxFriendly = (CheckBox)findViewById(R.id.checkBox1);
         boxSpecial = (CheckBox)findViewById(R.id.checkBox2);
         boxOpinion = (CheckBox)findViewById(R.id.checkBox3);
@@ -59,12 +74,15 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
         buttonPause = (Button)findViewById(R.id.buttonPause);
         buttonReset = (Button)findViewById(R.id.buttonReset);
 
+
         radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
 
         spinner = (Spinner)findViewById(R.id.spinner);
 
-
+        //Set timelisterner on tick
         timer.setOnChronometerTickListener(this);
+
+        //Set up the arrayadapter, to control the spinner options.
 
         ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource
                 (this,R.array.spinnerArray,android.R.layout.simple_spinner_item);
@@ -72,6 +90,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+            //Adapter that define and calculate the spinner.
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -86,6 +105,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
+            //Method that define and calculate the seekbar.
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 tipEditText.setText(i+"%");
@@ -104,7 +124,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
         });
     }
 
-
+            // This method will calculate the values,if checked a value will appear,
+            // bad with minus och good with plus 1%.
             public void calc(){
 
                 int boxFvalue;
@@ -115,7 +136,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
                 int spinnerValue;
 
 
-
+                //Box values:
                 Float billPrice = Float.parseFloat(billEditText.getText().toString());
 
                 if (boxFriendly.isChecked())
@@ -133,6 +154,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
                 else
                     boxOvalue = 0;
 
+                //Spinner values:
+
                 if (spinner.getSelectedItemPosition() == 0)
                     spinnerValue = -1;
                 else if (spinner.getSelectedItemPosition()== 1)
@@ -141,7 +164,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
                     spinnerValue = 0;
 
 
-
+                //Radiobuttons value:
 
                if (radioGroup.findViewById(radioGroup.getCheckedRadioButtonId()) == findViewById(R.id.radioBad))
                    radioValue = -1;
@@ -150,7 +173,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
                else
                    radioValue = 0;
 
-
+                //Values will change the bill price and divided it.
                Float value = billPrice*(Float.parseFloat(seekBar.getProgress()+"")/100);
 
                value = value+(billPrice*(boxFvalue+boxSvalue+boxOvalue)/100);
@@ -163,6 +186,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
 
                value = value+(billPrice*ticktiploss /100);
 
+                //Total bill=text field with 2 decimals.
                editFinalText.setText(String.format("%.2f", value));
 
 
@@ -195,9 +219,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
     }
 
     public void boxClick(View view) {
+
         calc();
     }
-
+    //Chronometer that in 30 sek interval will redraw 1 % tip from the bill.
     @Override
     public void onChronometerTick(Chronometer chronometer) {
 
@@ -214,7 +239,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Chro
 
 
     }
-
+    //Buttons that will start, pause and reset the chronometer.
     public void buttonClick(View view) {
 
         switch (view.getId()){
