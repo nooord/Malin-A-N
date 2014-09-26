@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Lab2b Application</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_add">Add</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_add_contact">AddContactActivity</string>
+    <string name="nameTxt">Name</string>
+    <string name="ageTxt">Age</string>
+    <string name="descriptionTxt">Description</string>
+    <string name="addButton">Add</string>
+    <string name="imgUrl">Image Url</string>
+    <string name="title_activity_new_contact_view">NewContactViewActivity</string>
+    <string name="nameView">Name</string>
+    <string name="ageView">Age</string>
+    <string name="descripView" > Description</string>
+    <string name="saveButton">Save</string>/>
+
+</resources>
